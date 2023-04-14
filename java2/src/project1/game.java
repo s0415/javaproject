@@ -7,7 +7,6 @@ public interface game {
 	
 	public void user();			//사용자가 입력하는 부분
 	
-	//비교검토 true,false
 	public String result(int pc, int user);
 	
 }
