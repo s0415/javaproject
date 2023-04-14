@@ -1,7 +1,5 @@
 package java3;
 
-import java.util.Arrays;
-
 public class Interface3 {
 	//user1.java,user2.java 응용편
 	/*
