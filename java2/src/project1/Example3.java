@@ -1,5 +1,7 @@
 package project1;
 
+import java.util.Scanner;
+
 /*
  (주)CJ운송에서 테스트 코딩
  사용자가 8명 있습니다.
@@ -26,5 +28,4 @@ public class Example3 {
 
 
 	}
-
 }
