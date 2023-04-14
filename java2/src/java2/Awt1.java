@@ -1,4 +1,6 @@
+/*
 package java2;
+
 
 import java.awt.Button;
 import java.awt.Checkbox;
@@ -71,3 +73,4 @@ class closepm extends WindowAdapter{
 		System.exit(0);
 	}
 }
+ */

@@ -1,4 +1,4 @@
-package java2;
+/*package java2;
 
 public class Method15 {
 	//오버라이드 규칙(설명 위해 고의로 오류 생성)
@@ -30,3 +30,4 @@ class color2 extends color1{
 		return super.zzz(nm);
 	}
 }
+*/
