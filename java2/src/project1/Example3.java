@@ -1,6 +1,7 @@
 package project1;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  (주)CJ운송에서 테스트 코딩
@@ -27,5 +28,23 @@ public class Example3 {
 	public static void main(String[] args) {
 
 
+	}
+}
+class point{
+	ArrayList<Object[]> al;
+	Object data[][];
+	
+	public void data() {
+		this.data=new Object[][] {
+			{"서울",0},
+			{"경기도",0},
+			{"인천",0},
+			{"대전",0},
+			{"충북",0},
+			{"충남",0},
+			{"전북",0},
+			{"전남",0}
+		};
+		this.al = new ArrayList<>(Arrays.asList(this.data));
 	}
 }
