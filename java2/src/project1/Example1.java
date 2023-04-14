@@ -17,9 +17,53 @@ public class Example1 {
 	 */
 
 	public static void main(String[] args) {
-		int number =(int)Math.ceil(Math.random()*10);
-		System.out.println(number);
-
+		games ga=new games();	//외부 클래스 호출
+		ga.user();	//외부 메소드 실행
+		}
 	}
-
+	
+class games implements game{
+	Scanner sc;
+	int count=0;	//카운터 값(게임 횟수)
+	//this.pc : pc가 1~10 숫자를 뽑아 저장한 변수값
+	@Override
+	public void user() {
+		sc=new Scanner(System.in);
+		System.out.println("1부터 10까지 숫자를 입력하세요");
+		int my =sc.nextInt();
+		if(my>10) {
+			System.out.println("10이하의 숫자만 입력 할 수 있습니다.");
+			user();
+		}
+		else {
+			count++;
+			if(count>4) {//4회 이상 틀릴경우
+				System.out.println("정답을 맞추지 못했습니다.");
+			}
+			else {	//4번의기회
+				//return값으로 결과를 받음
+				String z = result(game.pc,my);
+				if(z.equals("")) {	//결과값이 없으면 정답
+					System.out.println("정답");
+				}
+				else {	//그 외 결과는 모두 출력
+					System.out.println(z);
+					user();	//해당 메소드 다시 재호출
+				}
+			}
+		}
+	}
+@Override
+//int a : pc 숫자 int b:사용자가 입력한 숫자
+	public String result(int pc, int user) {
+		String msg="";
+		if(pc>user) {
+			msg="UP";
+		}
+		else if(pc<user) {
+			msg="DOWN";
+		}
+		
+	return msg;
+	}
 }
