@@ -17,7 +17,7 @@ public class File4 {
 			fw.write("{userdb :"+userdata[w]+"},");	//write : 문자, 배열, 숫자 등 다양한 데이터값을 파일에 저장하는 명렁어
 			w++;
 		}while(w<userdata.length);
-		fw.close();
+		fw.close();	//파일 쓰기 종료
 	}
 
 }
