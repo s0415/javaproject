@@ -3,7 +3,6 @@ package java3;
 //user1.java, user2.java 응용편
 
 import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Interface2 {

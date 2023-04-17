@@ -1,7 +1,6 @@
 package java3;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 
 public class List6 {
