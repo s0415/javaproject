@@ -31,7 +31,7 @@ class notice{
 		//Scanner가 true일경우(파일에 사용된 라인 갯수만큼 반복)에만 반복문 시행, 없으면 false가됨(반복문종료)
 		while(this.sc.hasNext()) {	
 		System.out.println(this.sc.nextLine());
-		//nextLine : 단어 띄어쓰기로 인하여 데잍가 부분적으로 출력되는 현상을 막음
+		//nextLine : 단어 띄어쓰기로 인하여 데이터가 부분적으로 출력되는 현상을 막음
 		}
 		this.fr.close();
 		this.sc.close();
