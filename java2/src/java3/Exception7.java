@@ -1,5 +1,6 @@
 package java3;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Exception7 {
@@ -37,6 +38,7 @@ public class Exception7 {
 
 class rdata{
 	LinkedList<String> ls = new LinkedList<>();	//빈 배열 생성
+	ArrayList<Integer> ar = new ArrayList<>();
 	//setter : 데이터를 생성 및 가공
 	//getter : 데이터를 출력(return)
 	
@@ -50,10 +52,13 @@ class rdata{
 				//System.out.println(check);	//문자열만 출력
 				this.ls.add(check);
 			}
-			catch(Exception ex) {} //예외처리발생
+			catch(Exception ex) {//예외처리발생
+				int check2=Integer.valueOf((int)call[w]);	
+				this.ar.add(check2);
+			} 
 			w++;
 		}while(w<ea);
-		//System.out.println(this.ls);
+		System.out.println(this.ar);	//숫자만 출력
 	}
 	public LinkedList<String> getter() {	//(5).배열 자료형으로 return시킴
 		return this.ls;
