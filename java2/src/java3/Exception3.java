@@ -39,7 +39,6 @@ public class Exception3 {
 				e.getMessage();	//문제 발생시에만 출력됨
 			}
 		}
-		
 	}
 }
 class method2{
@@ -54,6 +53,5 @@ class method2{
 		System.out.println("총 합계는 "+sum+"입니다.");
 		Exception ex = new Exception();
 		throw ex;
-		
 	}
 }

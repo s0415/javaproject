@@ -17,6 +17,7 @@ class bbox1{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("고객명을 입력하세요 : ");
 		this.user = sc.next();	//사용자가 입력한 값을 변수로 이관
+		sc.close();
 	}
 	public void search(String nm) {	//일반 메소드 생성
 		

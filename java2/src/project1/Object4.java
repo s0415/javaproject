@@ -53,6 +53,7 @@ class selp{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("원하시는 상품 코드를 입력하세요.");
 		sc.nextInt();
+		sc.close();
 		
 		
 		int w=0;

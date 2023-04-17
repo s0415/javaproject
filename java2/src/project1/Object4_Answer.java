@@ -76,6 +76,7 @@ class ob_array{
 		System.out.println(Arrays.toString(menu));
 		System.out.println("메뉴를 선택해 주세요?");
 		Object select = sc.nextInt();	//사용자가 입력한 값
+		sc.close();
 			if((int)select < 7) {	//7미만의 메뉴 번호를 입력할때 
 				this.count++;	//메뉴를 하나씩 선택할 때 마다 +1씩 증가
 				if(this.count >= 6) {	//메뉴 6개를 다 고를 경우
