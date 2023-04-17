@@ -14,7 +14,7 @@ public class File4 {
 		//FileWriter에 true를 붙이게 되면, 기존 입력된 사항을 유지하면서 추가데이터가 입력됨
 		int w=0;
 		do {
-			fw.write(userdata[w]);	//write : 문자, 배열, 숫자 등 다양한 데이터값을 파일에 저장하는 명렁어
+			fw.write("{userdb :"+userdata[w]+"},");	//write : 문자, 배열, 숫자 등 다양한 데이터값을 파일에 저장하는 명렁어
 			w++;
 		}while(w<userdata.length);
 		fw.close();
