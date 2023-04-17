@@ -16,8 +16,14 @@ public class File1 {
 		*/
 	public static void main(String[] args) throws IOException {
 		FileReader fr = new FileReader("D:\\git_java\\javaproject\\java2\\src\\Files\\message.txt");
-		System.out.println(fr);
-
+		while(true) {
+			int m = fr.read();
+			System.out.println((char)m);
+			if(m==-1) {
+				break;
+			}
+		}
+		fr.close();
 
 	}
 
