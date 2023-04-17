@@ -7,8 +7,8 @@ public class File5 {
 	//user.txt 라는 파일에 다음과 같이 저장되도록 코드를 작성하시오.
 	/*
 	 사용자 아이디를 입력하세요.
-	 총 5번 질무낳며, 사용자가 직접 입력합니다.
-	 사용자가 입력한 내용은 user.txt.에 남아있어야 합니다.
+	 총 5번 질문하며, 사용자가 직접 입력합니다.
+	 사용자가 입력한 내용은 user.txt에 남아있어야 합니다.
 	 */
 	public static void main(String[] args) throws Exception {
 
