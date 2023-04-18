@@ -18,6 +18,7 @@ public class Array13 {
 			for(f=0; f<=4; f++) {
 			System.out.println("학급 학생 아이디를 입력해 주세요");
 			String id = sc.next();
+			sc.close();	//지워야 작동함
 			lists+=id+" ";
 		}
 		System.out.println(lists);
