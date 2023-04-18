@@ -32,6 +32,13 @@ class buffer{
 		}
 		System.out.println(ea);
 		
+		
+	    String text = "";
+	      while((text=this.br.readLine())!=null) {
+	         System.out.println(text);
+	      }
+		 //System.out.println(this.br.readLine());
+		
 		/*
 		 ***Buffer는 한번 사용시 무조건 다음 라인으로 이동됩니다.
 		 조건문에 Buffer의 readLine 사용시 해당 첫번째 라인은 캐시메모리에서 삭제됨
@@ -43,11 +50,5 @@ class buffer{
 		}
 		 */
 		
-		/*
-		  while(true) {
-		 
-			String text = this.br.readLine();
-			System.out.println(text);
-		}*/
 	}
 }
