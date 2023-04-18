@@ -7,7 +7,13 @@ import java.io.OutputStream;
 
 public class File16 {
 	//이미지(Binary) 형태 byte단위로 설정(FileReader X)
-	//InputStream으로 이용
+	/*
+	  1. InputStream으로 이용
+	  2. OutputStream으로 파일명'만'생성
+	  3. byte단위로 처리하는 사항 생성 (ex: /100 => 100%)
+	  4. 무한 반복문으로 해당 원본 파일을 지속적으로 읽어들이면서 write로 복사함
+	  5. -1 : 더이상 복제할 사항이 없을 경우 출력됨 => break사용하여 무한 반복문 빠져나감 
+	 */
 	
 	public static void main(String[] args) {
 		try {
@@ -31,10 +37,12 @@ public class File16 {
 					break;
 				}
 				else {
-					os.write(img,0,imgs);	//이미지를 copy함
+					//이미지를 copy함(byte단위로 지속적으로 생성함)
+					os.write(img,0,imgs);	
 				}
 				check++;
 				if(check%2 ==0) {
+					//현재 생성되고 있는 %를 표기하기 위한 코드(사용X무방,교육용)
 					System.out.println(check+"%");
 				}
 			}
