@@ -20,8 +20,9 @@ public class File17_A {
 			else {
 				BufferedInputStream bs = new BufferedInputStream(new FileInputStream(file));
 				byte[] filesize = new byte[bs.available()];
+				int total = bs.read(filesize);
 				OutputStream os =new FileOutputStream("copy.jpg");
-				os.write(filesize,0,bs.available());
+				os.write(filesize,0,total);
 				System.out.println("이미지가 등록되었습니다.");
 			}
 		}

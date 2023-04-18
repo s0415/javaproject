@@ -20,31 +20,30 @@ public class File17 {
 		
 			InputStream is = new FileInputStream(file); 
 			byte img[]=new byte[is.available()/100];
+			if(is.available()>1048576) {
+				System.out.println("이미지 제한 용량은 1MB이하 입니다.");
+			}
+			else {
+				OutputStream os = new FileOutputStream("D:\\memo\\asdf3.jpg"); //1메가이하
 			
-			
-			int imgs =0;
-			while(true) {
-				imgs = is.read(img);
-				//System.out.println(imgs);	//이미지용량?
-				if(imgs==-1) {
-					break;
-				}
-				else {
-					if(is.available()>1048576) {
-						System.out.println("이미지 제한 용량은 1MB이하 입니다.");
+				int imgs=0;
+				while(true) {
+					imgs = is.read(img);
+					//System.out.println(imgs);	//이미지용량?
+					if(imgs==-1) {
 						break;
 					}
-					else if(is.available()<1048576){
-						OutputStream os = new FileOutputStream("D:\\memo\\asdf3.jpg"); //1메가이하
-						System.out.println("파일이 업로드 되었습니다");
-						//OutputStream os = new FileOutputStream("D:\\memo\\270X2.jpg"); //1메가이상
-						os.write(img,0,imgs);
-						is.close();
-						os.close();
+					else {
+							//OutputStream os = new FileOutputStream("D:\\memo\\270X2.jpg"); //1메가이상
+					 os.write(img,0,imgs);
 					}
-				}
-				
+					}
+				is.close();
+				os.close();
+				System.out.println("파일이 업로드 되었습니다");
 			}
+			
+					
 			
 		}
 		catch(Exception e) {
