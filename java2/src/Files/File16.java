@@ -32,6 +32,8 @@ public class File16 {
 			int check=0;	//%로 사용자에게 생성률을 보여주기 위한 변수(학습용)
 			while(true) {
 				imgs = is.read(img);	//해당 파일을 읽어서 바이트 변수로 넘김
+				is.close();	//지우기
+				os.close();	//지우기
 				System.out.println(imgs);
 				if(imgs ==-1) {
 					break;
