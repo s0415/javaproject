@@ -40,14 +40,14 @@ class filedata{
 	public void addfile() throws Exception{
 		//Paths.get : 파일 경로
 		this.data=Files.readAllLines(Paths.get("D:\\git_java\\javaproject\\java2\\src\\Files\\notice.txt"),Charset.forName("UTF8"));
-		System.out.print(data);
+		System.out.print(data);	//권장
 		
-		this.data2= (LinkedList<String>)Files.readAllLines(Paths.get("D:\\git_java\\javaproject\\java2\\src\\Files\\notice.txt"),Charset.forName("UTF8"));
-		//System.out.println(data2);
+		this.data2= new LinkedList<String>(Files.readAllLines(Paths.get("D:\\git_java\\javaproject\\java2\\src\\Files\\notice.txt"),Charset.forName("UTF8")));
+		//System.out.printf("\n%s",data2);
 		
 		//원시배열로 처리 (byte단위) : 언어패킷 사용X, 1차배열로만 처리됨
 		//단점 : byte 단위는 메모리 할당이 많아짐.
 		byte data3[]=Files.readAllBytes(Paths.get("D:\\git_java\\javaproject\\java2\\src\\Files\\notice.txt"));
-		//System.out.println(new String(data3));
+		System.out.println(new String(data3));
 	}
 }
