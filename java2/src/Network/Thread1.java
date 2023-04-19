@@ -16,7 +16,7 @@ public class Thread1 {
 	}
 
 }
-class box extends Thread{
+class box extends Thread{	//Thread전용 클래스
 	int no;
 	public box(int a) {	//setter
 		this.no = a;
