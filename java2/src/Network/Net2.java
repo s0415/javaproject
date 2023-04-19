@@ -60,7 +60,7 @@ class getimage{
 		
 		int imgsize = con.getContentLength();	//이미지사이즈
 		//System.out.println(imgsize);
-		String imgtype = con.getContentType();	//이미지형태
+		String imgtype = con.getContentType();	//이미지형태(타입검토)
 		//System.out.println(imgtype);
 		String date = String.valueOf(con.getDate());	//업로드날짜
 		
