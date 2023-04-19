@@ -51,9 +51,9 @@ class getimage{
 		this.sc = new Scanner(System.in);
 		System.out.println("웹에서 가져올 이미지 주소를 입력해주세요.");
 		String url = sc.nextLine();
-		URL u = new URL(url);	//URL class 호출 : 네트워크 경로(절대경로 형태로 적용)
 		
 		//통신
+		URL u = new URL(url);	//URL class 호출 : 네트워크 경로(절대경로 형태로 적용)
 		URLConnection con = u.openConnection();	//해당 경로를 연결하는 것을 말함
 		//System.out.println(con);
 		//
