@@ -4,10 +4,12 @@ public class Thread1 {
 
 	public static void main(String[] args) {
 		int w =0;
-		while(w<6) {
+		while(w<10) {
 			box b= new box(w);
+			//멀티스레드 구성 형태이며, 해당 값을 원하는 작업공간에 적용하게 됩니다.
+			
 			Thread t = new Thread (b);
-			t.start();
+			t.start();	//run() 메소드를 실행함 
 			//b.run();
 			w++;
 		}
