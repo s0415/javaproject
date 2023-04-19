@@ -18,12 +18,15 @@ public class File17_A {
 				System.out.println("1메가 이하의 이미지만 첨부하세요");
 			}
 			else {
-				BufferedInputStream bs = new BufferedInputStream(new FileInputStream(file));
+				BufferedInputStream bs = new BufferedInputStream(is);
 				byte[] filesize = new byte[bs.available()];
 				int total = bs.read(filesize);
+				
 				OutputStream os =new FileOutputStream("copy.jpg");
 				os.write(filesize,0,total);
 				System.out.println("이미지가 등록되었습니다.");
+				os.close();
+				bs.close();
 			}
 		}
 		catch(Exception e) {
