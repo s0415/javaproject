@@ -11,13 +11,25 @@ public class Net1 {
 	
 	public static void main(String[] args) {
 		try {
+			/*
+			 InetAddress : IPnetworkAddress
+			 getByName : 접속할 도메인 주소명
+			 getHostAddress : 접속하는 서버의 IP주소 
+			 */
+			
 			InetAddress ia= InetAddress.getByName("localhost");
 			String domain = ia.getHostAddress();
 			String ip = ia.getHostAddress();
 			System.out.println(ip);
 			
+			//getAllByName : 배열로 처리하는 형태
 			InetAddress ia2[]=InetAddress.getAllByName("naver.com");
 			System.out.println(ia2.length);	//naver의 서버가 4개라는뜻
+			int w=0;
+			while(w<ia2.length) {
+				System.out.println(ia2[w].getHostAddress());
+				w++;
+			}
 			
 			
 		}
