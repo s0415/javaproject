@@ -8,8 +8,7 @@ public class Thread3 {
 		t.start();
 		
 		Runnable r = new amds();
-		Thread t2=new Thread();
-		r.run();
+		Thread t2=new Thread(r);
 		t2.start();
 		
 		
