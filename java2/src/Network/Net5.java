@@ -47,6 +47,7 @@ public class Net5 {
 				os.close();
 				is.close();
 				sc.close();
+				ss.close();
 				
 			}
 		}
