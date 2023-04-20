@@ -32,12 +32,29 @@ class mchat{
 
 		
 	public mchat(String id) {
-		try {				this.so = new Socket(this.ip, this.port);
+		try {			
+			this.msg = "Welcome, "+id;
+			
+			while(true) {
+				
+			this.so = new Socket(this.ip, this.port);
 			this.is = this.so.getInputStream();
 			this.os = this.so.getOutputStream();
+				
+			
 			this.sc = new Scanner(System.in);
-			this.msg = "Welcome, "+id;
+			System.out.println("chat: ");
+			this.msg = this.sc.nextLine();
+			
 			this.os.write(this.msg.getBytes());
+			this.os.flush();
+				
+			byte data[]=new byte[4096];
+			int n = this.is.read(data);
+			this.msg = new String(data,0,n);
+			System.out.println(this.msg);
+			
+			}
 		}
 		
 		catch(Exception e){
