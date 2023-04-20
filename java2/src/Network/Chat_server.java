@@ -33,7 +33,28 @@ class chat_sv{
 			while(true) {
 				this.so = sk.accept();
 				this.is = this.so.getInputStream();		//클라이언트에게 받는 메세지
+				
+				/*클라이언트 메세지를 출력*/
 				this.os = this.so.getOutputStream();	//클라이언트에게 보내는 메세지
+				byte msg[] =new byte[1024];
+				int n = this.is.read(msg);
+				String text =new String(msg,0,n);
+				System.out.println(text);	//클라이언트 입장 메세지+채팅메세지
+				/*클라이언트 메세지를 출력*/
+				
+				/*서버에서 클라이언트로 메세지를 전송하는 코드*/
+				this.sc = new Scanner(System.in);
+				System.out.println("Server Message : ");
+				text = this.sc.nextLine();
+				if(text.equals("exit")) {
+					this.sk.close();
+					this.so.close();
+					break;
+				}
+				String cms ="["+this.mid+"] : "+text;
+				this.os.write(cms.getBytes());
+				this.os.flush();
+				/*서버에서 클라이언트로 메세지를 전송하는 코드*/
 			}
 		}
 		catch(Exception e) {
