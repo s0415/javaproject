@@ -53,9 +53,11 @@ public class Thread2 {
 			tt3 = new Thread(lp2);
 			tt4 = new Thread(lp2);
 			
-			tt1.start();
-			tt1.join();
-			//tt2.start();
+			tt1.start();	//멀티 Thread로 작업 시작
+			tt1.join();		//작업 종료와 관계없이 순차적으로 결과가 나오도록 조정
+
+			tt2.start();
+			tt2.join();	
 			//tt3.start();
 			//tt4.start();
 			k++;
