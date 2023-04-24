@@ -7,8 +7,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//Thread를 이용한 멀티채팅 서버
-public class Multi_server {
+//Thread를 이용한 모든 사용자에게 push 알림 네트워크
+public class m_server {
 
 	public static void main(String[] args) {
 		chatroom cr = new chatroom();
@@ -25,7 +25,7 @@ class chatroom{
 	public chatroom() {
 		try {
 			this.sk = new ServerSocket(this.port);
-			System.out.println("******CHATTING******");
+			System.out.println("******Push room******");
 			while(true) {
 				this.so=this.sk.accept();	//클라이언트 접속허가
 				Thread tr = new chat_thread(this.so);	//accept 전송
@@ -65,10 +65,10 @@ class chat_thread extends Thread{
 			 byte data[]=new byte[1024];
 			 int n = this.is.read(data);
 			 this.msg = new String(data,0,n);
-			 System.out.println(this.msg);	
-			 // this.sc = new Scanner(System.in);
-			 // System.out.println("message : ");
-			 String result = this.msg;
+			 
+			 this.sc = new Scanner(System.in);
+			 System.out.println("message : ");
+			 String result = this.sc.nextLine();
 				 
 				 /*한명이 입력한 메세지를 접속한 모든 사용자에게 출력하기 위함*/
 				 int f;
