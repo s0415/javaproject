@@ -62,7 +62,7 @@ class ch_client extends Thread{
 		try {
 			//byte->String 변환
 			PrintWriter ps = new PrintWriter(this.sk.getOutputStream());
-			ps.println(this.name);
+			ps.println(this.name);	//입장시에만 (첫 1회)
 			ps.flush();
 			
 			while(true) {		//사용자가 입력하는 메세지를 전달
@@ -70,6 +70,12 @@ class ch_client extends Thread{
 				String msg = this.sc.nextLine();
 				ps.println(msg);	//전달 메세지 출력
 				ps.flush();			//메세지 초기화
+				if(msg.equals("exit")) {
+					System.out.println("chatting end..");
+					System.exit(0);	//프로세서 종료
+					this.sc.close();
+					break;
+				}
 			}
 		}
 		catch(Exception e) {
