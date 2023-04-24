@@ -3,76 +3,78 @@ package Network;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class multi_client {
 	//멀티채팅클라이언트
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("user id : ");
-		String mid = sc.nextLine().intern();
-		if(mid=="") {
-			System.out.println("id error");
-		}
-		else {
-			ch_client cc = new ch_client(mid);
-			cc.start();
-		}
+		multi_client mc = new multi_client();
+		mc.info();
+
 	}
-}
-class ch_client extends Thread{
-	private String ip = "192.168.10.144";
-	private int port=10001;
-	Socket sk = null;
-	Scanner sc = null;
-	InputStream is = null;
-	OutputStream os = null;
-	String msg = null;
-	InputStreamReader isr = null;
-	BufferedReader br = null;
-	String id = null;
-	PrintStream ps = null;
-	
-	public ch_client(String id) {
+	public void info() {
+		Socket sk = null;
+		BufferedReader br = null;
+		InputStream is = null;
+		InputStreamReader isr = null;
+		Scanner sc = null;
 		try {
-			this.id = id;
-			this.sk=new Socket(this.ip,this.port);
-			System.out.println("Server Connect");
-			this.is = this.sk.getInputStream();
-			this.isr=new InputStreamReader(this.is);
-			this.br= new BufferedReader(this.isr);
-			this.os = this.sk.getOutputStream();
+			//서버 접속 ip 및 포트 설정
+			sk = new Socket("192.168.10.144",10001);
+			System.out.println("Connect Success");
+			sc = new Scanner(System.in);
+			System.out.println("user id : ");	//사용자 아이디
+			String name = sc.next();
 			
-			while(true) {
-				String inputmsg = this.br.readLine();
-				System.out.println("message : "+inputmsg);
+			//멀티스레드로 사용자 아이디 및 소켓 전달
+			Thread tr = new ch_client(sk,name);
+			tr.start();	//멀티스레드 가동
+			
+			is = sk.getInputStream();		//읽기
+			isr = new InputStreamReader(is);	//byte->String 변환
+			br = new BufferedReader(isr);		//메모리에 저장
+			
+			while(br!=null) {
+				String msg = br.readLine();	//메모리 문자 확인
+				System.out.println(msg);	//전달
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Server Connect Error");
-		}
+			System.out.println("Server Connect Error...");
+		}	
+	}
+}
+
+class ch_client extends Thread{
+	Socket sk = null;
+	String name = null;
+	Scanner sc = null;
+	
+	//소켓, 아이디값 기본설정으로 등록
+	public ch_client(Socket s, String name) {	//setter
+		this.sk=s;
+		this.name=name;
 	}
 	@Override
 	public void run() {
 		try {
-			//접속 아이디를 서버로 전송(1회 작동)
-			this.ps = new PrintStream(this.os);
-			this.ps.println(this.id);
-			this.ps.flush();
+			//byte->String 변환
+			PrintWriter ps = new PrintWriter(this.sk.getOutputStream());
+			ps.println(this.name);
+			ps.flush();
 			
-			//채팅 문구를 전송
-			while(true) {
-				this.sc=new Scanner(System.in);
-				String output = this.sc.nextLine();
-				this.ps.println(output);
-				this.ps.flush();
+			while(true) {		//사용자가 입력하는 메세지를 전달
+				this.sc =  new Scanner(System.in);
+				String msg = this.sc.nextLine();
+				ps.println(msg);	//전달 메세지 출력
+				ps.flush();			//메세지 초기화
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Error");
+			System.out.println("Message Error!");
 		}
+	
 	}
 }
